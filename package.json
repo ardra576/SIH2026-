@@ -1,0 +1,23 @@
+{
+  "name": "skillbridge-ai",
+  "version": "1.0.0",
+  "description": "SkillBridge AI - Learn Smarter. Identify Skills. Grow Faster. Smart India Hackathon 2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "node run-dev.js",
+    "start": "cd server && npm start",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "sih2026",
+    "ai-education",
+    "competency-intelligence",
+    "gemini-api"
+  ],
+  "author": "SkillBridge AI Team",
+  "license": "MIT"
+}
