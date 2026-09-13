@@ -128,5 +128,16 @@ export const api = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ gaps })
     });
+  },
+
+  /**
+   * Send chat message to SkillBridge AI Assistant
+   */
+  async sendChatMessage(message, history = []) {
+    return safeFetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, history })
+    });
   }
 };

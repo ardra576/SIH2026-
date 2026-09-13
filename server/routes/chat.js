@@ -5,16 +5,20 @@ const router = express.Router();
 
 // POST /api/chat
 router.post('/', async (req, res) => {
-  const { message } = req.body;
-  if (!message) {
-    return res.status(400).json({ error: 'Message is required' });
+  const { message, history } = req.body || {};
+  if (!message || typeof message !== 'string' || !message.trim()) {
+    return res.status(400).json({ success: false, error: 'Message is required' });
   }
   try {
-    const result = await chat(message);
-    res.json(result);
+    const result = await chat(message.trim(), history);
+    res.json({ success: true, reply: result.reply, error: result.error });
   } catch (err) {
     console.error('[SkillBridge AI] Chat route error:', err);
-    res.status(500).json({ error: 'Failed to process chat request' });
+    res.status(500).json({ 
+      success: false, 
+      reply: "I'm having trouble connecting to the AI right now. Please try again.",
+      error: 'Failed to process chat request' 
+    });
   }
 });
 

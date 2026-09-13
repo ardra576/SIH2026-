@@ -4,6 +4,7 @@ import { Menu, Sparkles, LayoutDashboard } from 'lucide-react';
 
 import Sidebar from './components/Sidebar';
 import ToastContainer from './components/Toast';
+import AIChatbot from './components/AIChatbot';
 import LandingPage from './pages/LandingPage';
 import UserSetupPage from './pages/UserSetupPage';
 import DashboardPage from './pages/DashboardPage';
@@ -107,6 +108,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ToastContainer />
+      <AIChatbot />
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
